@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Each One Teach One (EOTO) | Empowering Education, Transforming Lives</title>
+  <meta name="description" content="EOTO connects sponsors directly with deserving students in Kerala who need help paying college fees. Transparent, direct, and non-profit.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#" class="logo-link">
+        <img src="eoto_logo.jpeg" alt="EOTO Logo" class="nav-logo-img">
+        <div class="logo-text">
+          <span class="logo-title">Each One Teach One</span>
+          <span class="logo-subtitle">Kerala Student Support</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#how-it-works" class="nav-link">How it Works</a></li>
+          <li><a href="#cases" class="nav-link">Live Cases</a></li>
+          <li><a href="#bylaws" class="nav-link">Bylaws</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#cases" class="btn btn-primary">Sponsor a Student</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Top Main Banner -->
+    <div class="main-banner-wrapper">
+      <img src="eoto_main_log.png" alt="Each One Teach One - Empowering Education, Transforming Lives" class="main-banner-img">
+    </div>
+
+    <!-- Impact Stats Section -->
+    <section class="container stats-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-icon-total">📚</div>
+          <div class="stat-content">
+            <h3 id="stat-total-cases">0</h3>
+            <p>Total Cases Processed</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-icon-open">🟢</div>
+          <div class="stat-content">
+            <h3 id="stat-open-cases">0</h3>
+            <p>Open Cases (Needs Sponsor)</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-icon-sponsored">🎓</div>
+          <div class="stat-content">
+            <h3 id="stat-sponsored-cases">0</h3>
+            <p>Students Sponsored</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Working of the Group Section -->
+    <section class="container" id="how-it-works" style="padding: 2rem 0 4rem 0;">
+      <div class="section-header">
+        <h2>How EOTO Operates</h2>
+        <p>100% Transparent, Volunteer-Driven College Tuition Assistance in Kerala</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="process-step-num">01</div>
+          <h3>Case Intake & Verification</h3>
+          <p>
+            Students in need submit their college fee structure and family financial background. Our core volunteer team verifies details directly with college authorities.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step-num">02</div>
+          <h3>Public Case Publication</h3>
+          <p>
+            Verified cases are assigned a unique Case ID (e.g. <code>EOTO-2026-012</code>) and published on our website and WhatsApp coordination channel.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step-num">03</div>
+          <h3>Direct Sponsorship & Settlement</h3>
+          <p>
+            When a sponsor chooses a case, funds are paid directly to the college or student bank account. Payment receipts are posted to close the case.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Cases Table Section -->
+    <section class="container cases-section" id="cases">
+      <div class="section-header" style="margin-bottom: 2rem;">
+        <h2>Active & Processed Student Cases</h2>
+        <p>Browse cases requiring financial assistance or view completed sponsorships.</p>
+      </div>
+
+      <div class="cases-header-bar">
+        <div class="filter-tabs">
+          <button class="tab-btn active" data-filter="all">All Cases</button>
+          <button class="tab-btn" data-filter="Open">🟢 Open Cases</button>
+          <button class="tab-btn" data-filter="In Progress">🟡 In Progress</button>
+          <button class="tab-btn" data-filter="Sponsored">🔵 Sponsored</button>
+        </div>
+
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="case-search" class="search-input" placeholder="Search by course, district, or Case ID...">
+        </div>
+      </div>
+
+      <!-- Table View -->
+      <div class="table-wrapper">
+        <table class="cases-table">
+          <thead>
+            <tr>
+              <th>Case Number</th>
+              <th>Course & Institution</th>
+              <th>District</th>
+              <th>Fee Amount</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="cases-table-body">
+            <!-- Dynamic Rows rendered via app.js -->
+          </tbody>
+        </table>
+        
+        <div id="no-cases-msg" class="no-cases-view" style="display: none;">
+          <h3>No cases found matching your criteria.</h3>
+          <p>Try clearing your search or switching filter tabs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bylaw & Governance Section -->
+    <section class="container" id="bylaws">
+      <div class="bylaw-section">
+        <div class="bylaw-grid">
+          <div class="bylaw-content">
+            <h3>EOTO Bylaws & Governance</h3>
+            <p>
+              Each One Teach One operates under strict ethical guidelines to ensure 100% of sponsor funds go directly to deserving educational fees.
+            </p>
+            <ul class="bylaw-list">
+              <li><span class="bylaw-icon">✓</span> Zero administrative cuts or commission overhead.</li>
+              <li><span class="bylaw-icon">✓</span> Direct payment verification with accredited educational institutions.</li>
+              <li><span class="bylaw-icon">✓</span> Complete transparency and proof of receipt for every case closed.</li>
+            </ul>
+            <button class="btn btn-outline" id="btn-view-bylaws">📄 Read Full Bylaw Document</button>
+          </div>
+
+          <div style="background: var(--bg-slate); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Have Questions or Want to Join as a Volunteer?</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+              Reach out to our coordination team directly on WhatsApp to learn more about our audit reports and operational model.
+            </p>
+            <a href="https://wa.me/919876543210?text=Hi%20EOTO%20Team,%20I%20have%20a%20query%20about%20your%20bylaws" target="_blank" class="btn btn-whatsapp">💬 Chat with EOTO Team</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3>Each One Teach One (EOTO)</h3>
+        <p>Connecting kind-hearted sponsors with deserving students in Kerala to remove financial barriers to higher education.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#how-it-works">How it Works</a></li>
+          <li><a href="#cases">Live Cases</a></li>
+          <li><a href="#bylaws">Bylaws</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact & Support</h4>
+        <ul>
+          <li>Email: <code>eoto.kerala@gmail.com</code></li>
+          <li>WhatsApp: Coordination Group</li>
+          <li>Location: Kerala, India</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Each One Teach One (EOTO). Built for community educational empowerment.</p>
+    </div>
+  </footer>
+
+  <!-- Bylaw Modal -->
+  <div class="modal-backdrop" id="bylaw-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="font-size: 1.4rem;">EOTO Official Bylaw Summary</h3>
+        <button class="modal-close" id="close-bylaw-modal">&times;</button>
+      </div>
+      <div style="font-size: 0.95rem; line-height: 1.7; color: var(--text-main);">
+        <p><strong>1. Mission & Purpose:</strong> EOTO is a non-profit volunteer initiative dedicated solely to funding higher education tuition fees for underprivileged students in Kerala.</p>
+        <br>
+        <p><strong>2. Case Selection Criteria:</strong> Cases are vetted based on academic record, family financial background verification, and official college fee structure proof.</p>
+        <br>
+        <p><strong>3. Financial Transparency:</strong> Neither EOTO nor its volunteers handle middleman funds for profit. Payments are made directly to the student's college account or documented bank account.</p>
+        <br>
+        <p><strong>4. Confidentiality & Dignity:</strong> Public listings highlight course, location, and fee requirements without compromising student dignity.</p>
+      </div>
+      <div style="margin-top: 1.5rem; text-align: right;">
+        <button class="btn btn-outline btn-sm" id="close-bylaw-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
