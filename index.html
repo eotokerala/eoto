@@ -171,9 +171,11 @@
             <ul class="bylaw-list">
               <li><span class="bylaw-icon">✓</span> Zero administrative cuts or commission overhead.</li>
               <li><span class="bylaw-icon">✓</span> Funds transferred directly to student bank account. EOTO handles zero money.</li>
-              <li><span class="bylaw-icon">✓</span> We review cases periodically to make sure student is progressing.</li>
-            </ul>
-            <button class="btn btn-outline" id="btn-view-bylaws">📄 Read Guidelines & Notes</button>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem;">
+              <button class="btn btn-outline" id="btn-view-bylaws">📖 Read Online</button>
+              <a href="EOTO%20-%20Note%20to%20Sponsors%20f.pdf" target="_blank" class="btn btn-outline">📥 Note to Sponsors (PDF)</a>
+              <a href="EOTO%20-%20Students.pdf" target="_blank" class="btn btn-outline">📥 Student Guidelines (PDF)</a>
+            </div>
           </div>
 
           <div style="background: var(--bg-slate); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
@@ -255,8 +257,11 @@
         </ul>
 
       </div>
-      <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
-        <a href="eoto_desc.txt" target="_blank" class="btn btn-outline btn-sm">📄 View Original Document</a>
+      <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); padding-top: 1rem;">
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <a href="EOTO%20-%20Note%20to%20Sponsors%20f.pdf" target="_blank" class="btn btn-outline btn-sm">📥 Note to Sponsors (PDF)</a>
+          <a href="EOTO%20-%20Students.pdf" target="_blank" class="btn btn-outline btn-sm">📥 Student Guidelines (PDF)</a>
+        </div>
         <button class="btn btn-primary btn-sm" id="close-bylaw-btn">Close</button>
       </div>
     </div>
