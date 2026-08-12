@@ -220,29 +220,44 @@
     </div>
   </footer>
 
-  <!-- Notes Modal -->
+  <!-- Notes & Guidelines Modal -->
   <div class="modal-backdrop" id="bylaw-modal">
-    <div class="modal-card">
+    <div class="modal-card" style="max-width: 680px;">
       <div class="modal-header">
-        <h3 style="font-size: 1.4rem;">Notes for Students & Sponsors</h3>
+        <h3 style="font-size: 1.3rem;">📋 EOTO Guidelines for Students & Sponsors</h3>
         <button class="modal-close" id="close-bylaw-modal">&times;</button>
       </div>
-      <div style="font-size: 0.95rem; line-height: 1.7; color: var(--text-main);">
-        <p><strong>For Sponsors:</strong></p>
+      <div style="font-size: 0.95rem; line-height: 1.7; color: var(--text-main); max-height: 65vh; overflow-y: auto; padding-right: 8px;">
+        
+        <div style="background: #F0FDF4; border-left: 4px solid var(--accent-green); padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem;">
+          <h4 style="color: var(--accent-green); font-size: 1.05rem; margin-bottom: 0.5rem; font-weight: 700;">പ്രവർത്തന മാർഗ്ഗനിർദ്ദേശങ്ങൾ (Malayalam)</h4>
+          <p style="margin-bottom: 0.75rem;">
+            പഠിക്കാൻ താല്പര്യമുള്ള, പഠനത്തിൽ മികവ് പുലർത്തുന്ന ഒരു കുട്ടിക്കും സാമ്പത്തിക പ്രതിസന്ധി കാരണം ആ അവസരം നഷ്ടമാകരുത് എന്ന ലക്ഷ്യത്തോടെയുള്ള ഉദ്യമമാണ് <strong>Each One Teach One (EOTO)</strong>.
+          </p>
+          <p style="margin-bottom: 0.75rem;">
+            അർഹരായ കുട്ടികളെ കണ്ടെത്തി സുമനസ്സുകളായ സ്പോൺസർമാർക്ക് അവരെ പരിചയപ്പെടുത്തുകയാണ് ഈ കൂട്ടായ്മയുടെ പ്രവർത്തനശൈലി. പഠിക്കുന്ന കോഴ്സിനനുസൃതമായി‌ നിശ്ചയിച്ചിരിക്കുന്ന പ്രതിമാസ സഹായധനം കുട്ടിയുടെ അക്കൗണ്ടിലേക്ക് സ്പോൺസർ നേരിട്ട് കൈമാറുന്ന രീതിയാണ് അവലംബിക്കുക. ഒരു രൂപ പോലും ഞങ്ങൾ നേരിട്ട് കൈകാര്യം ചെയ്യുന്നില്ല.
+          </p>
+          <p style="margin-bottom: 0.75rem;">
+            വിദ്യാഭ്യാസ സഹായത്തിനുള്ള അർഹത നിർണ്ണയിക്കുന്നത്, രേഖകളുടെ പരിശോധനയും നേരിട്ടുള്ള അന്വേഷണവും ഉൾപ്പെടെ വിശദമായ രണ്ട് ഘട്ട വിലയിരുത്തലുകൾക്ക് ശേഷമായിരിക്കും.
+          </p>
+          <p style="margin-bottom: 0;">
+            പ്ലസ് റ്റു വരെയുള്ള പഠനത്തിന് സാമ്പത്തിക പരാധീനത മാത്രം പരിഗണിച്ച് പരമാവധി ₹2000 - ₹3000 വരെയും, അതിനുമുകളിലേക്കുള്ള ഉന്നതപഠനത്തിന് അക്കാദമിക മികവും മുൻവർഷ മാർക്കുകളും പ്രധാന മാനദണ്ഡമാക്കി സഹായം ലഭ്യമാക്കുന്നു.
+          </p>
+        </div>
+
+        <h4 style="color: var(--primary-navy); font-size: 1.05rem; margin-bottom: 0.5rem; font-weight: 700;">Guidelines Summary (English)</h4>
         <ul style="padding-left: 1.25rem; margin-bottom: 1rem;">
-          <li>Direct 1-on-1 sponsorship without any middleman administration.</li>
-          <li>Funds transferred directly to student bank account. EOTO handles zero money.</li>
-          <li>Proof of academic performance is periodically reviewed by EOTO volunteers.</li>
+          <li><strong>Direct 1-on-1 Support:</strong> Sponsors transfer funds directly to the student's bank account. EOTO handles zero money.</li>
+          <li><strong>Two-Stage Verification:</strong> Background check of family financial background and academic performance proof.</li>
+          <li><strong>Schooling (Up to Plus Two):</strong> Monthly allowance up to ₹2,000–₹3,000 based on financial hardship.</li>
+          <li><strong>Higher Education (Degree/Professional):</strong> Support based on academic excellence and merit verification.</li>
+          <li><strong>Periodic Review:</strong> We periodically review student academic progress to ensure continued support.</li>
         </ul>
-        <p><strong>For Students:</strong></p>
-        <ul style="padding-left: 1.25rem; margin-bottom: 1rem;">
-          <li>All cases undergo two-stage background verification of financial need and academic record.</li>
-          <li>We review cases periodically to make sure student is progressing in their studies.</li>
-          <li>Complete respect for student dignity and privacy.</li>
-        </ul>
+
       </div>
-      <div style="margin-top: 1.5rem; text-align: right;">
-        <button class="btn btn-outline btn-sm" id="close-bylaw-btn">Close</button>
+      <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <a href="eoto_desc.txt" target="_blank" class="btn btn-outline btn-sm">📄 View Original Document</a>
+        <button class="btn btn-primary btn-sm" id="close-bylaw-btn">Close</button>
       </div>
     </div>
   </div>
