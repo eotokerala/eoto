@@ -694,6 +694,17 @@ a:hover {
   color: var(--status-sponsored-text);
 }
 
+.badge-closed {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: #F1F5F9;
+  color: #64748B;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid #E2E8F0;
+}
+
 .course-title {
   font-weight: 700;
   color: var(--primary-navy);

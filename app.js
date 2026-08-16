@@ -7,8 +7,8 @@
 // Deployed Google Apps Script Web App URL
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyl-uzH4DL-0RbP2lEUD9rK18Gk2x3_65n80_oq1Z9FYUUxVSGK2_jTPTRPa7ypjB-vgw/exec"; 
 
-// Fallback WhatsApp Team Contact Number (Format: Country Code + Phone, e.g., 919876543210)
-const EOTO_WHATSAPP_NUMBER = "919876543210";
+// Fallback WhatsApp Team Contact Number (Format: Country Code + Phone)
+const EOTO_WHATSAPP_NUMBER = "918848532421";
 
 // Global State
 let allCases = [];
@@ -89,35 +89,29 @@ function renderCasesTable() {
   if (noCasesMsg) noCasesMsg.style.display = "none";
 
   tbody.innerHTML = filteredCases.map(c => {
-    const statusClass = getStatusClass(c.status);
     const formattedAmount = formatCurrency(c.amount);
     const waUrl = generateWhatsAppLink(c);
+    const isClosed = c.status.toLowerCase() === "sponsored" || c.status.toLowerCase() === "closed";
 
     return `
       <tr>
         <td>
           <span class="case-id-badge">${escapeHtml(cleanCaseId(c.id, c.year))}</span>
         </td>
-        <td style="max-width: 480px;">
+        <td style="max-width: 520px;">
           <div class="course-title">${escapeHtml(c.course)}</div>
           <div class="institution-subtitle">${escapeHtml(c.institution)}</div>
           ${c.description ? `<div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px; line-height: 1.5; background: #F8FAFC; padding: 8px 12px; border-left: 3px solid var(--accent-green); border-radius: 4px;">${escapeHtml(c.description)}</div>` : ''}
         </td>
-        <td>${escapeHtml(c.district)}</td>
         <td>
           <span class="amount-text">${formattedAmount}</span>
         </td>
         <td>
-          <span class="status-badge ${statusClass}">${escapeHtml(c.status)}</span>
-        </td>
-        <td>
-          ${c.status.toLowerCase() === "open" ? `
-            <a href="${waUrl}" target="_blank" class="btn btn-whatsapp btn-sm">
-              💬 Sponsor via WhatsApp
-            </a>
+          ${isClosed ? `
+            <span class="badge-closed">Closed</span>
           ` : `
-            <a href="${waUrl}" target="_blank" class="btn btn-outline btn-sm">
-              Inquire
+            <a href="${waUrl}" target="_blank" class="btn btn-whatsapp btn-sm">
+              💬 Sponsor Case
             </a>
           `}
         </td>
@@ -136,7 +130,7 @@ function updateStatsCounter(cases) {
 
   const total = cases.length;
   const open = cases.filter(c => c.status.toLowerCase() === "open").length;
-  const sponsored = cases.filter(c => c.status.toLowerCase() === "sponsored").length;
+  const sponsored = cases.filter(c => c.status.toLowerCase() === "sponsored" || c.status.toLowerCase() === "closed").length;
 
   if (totalCasesEl) totalCasesEl.textContent = total;
   if (openCasesEl) openCasesEl.textContent = open;
@@ -148,7 +142,7 @@ function updateStatsCounter(cases) {
  */
 function generateWhatsAppLink(c) {
   const amountStr = typeof c.amount === "string" ? c.amount : formatCurrency(c.amount);
-  const text = `Hi EOTO Team, I am interested in sponsoring Case #${c.id} (${c.course} - ${c.district}, ${amountStr}). Please guide me with the details.`;
+  const text = `Hi EOTO Team, I am interested in sponsoring Case #${c.id} (${c.course}, ${amountStr}). Please guide me with the details.`;
   return `https://wa.me/${EOTO_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 }
 
@@ -199,7 +193,7 @@ function showTableLoading() {
   if (tbody) {
     tbody.innerHTML = `
       <tr>
-        <td colspan="6" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+        <td colspan="4" style="text-align: center; padding: 2rem; color: var(--text-muted);">
           ⏳ Fetching live cases from Google Sheets...
         </td>
       </tr>
@@ -212,7 +206,7 @@ function showTableError() {
   if (tbody) {
     tbody.innerHTML = `
       <tr>
-        <td colspan="6" style="text-align: center; padding: 2rem; color: #DC2626;">
+        <td colspan="4" style="text-align: center; padding: 2rem; color: #DC2626;">
           ⚠️ Unable to load live case data. Please try refreshing.
         </td>
       </tr>
