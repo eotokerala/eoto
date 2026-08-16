@@ -321,6 +321,9 @@ a:hover {
   color: var(--primary-navy);
 }
 
+.desktop-only-inline { display: inline; }
+.mobile-only-inline { display: none; }
+
 .btn-contact-green {
   background: var(--accent-green-light);
   color: var(--accent-green);
@@ -1103,13 +1106,20 @@ a:hover {
 
   .nav-actions {
     flex-shrink: 0;
-    gap: 8px;
+    gap: 6px;
   }
 
-  .nav-actions .btn {
-    padding: 6px 12px;
-    font-size: 0.8rem;
-    white-space: nowrap;
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-nav-cta {
+    width: 100%;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: var(--radius-md);
   }
 
   /* Table to Mobile Card Transformation (Zero Horizontal Scroll!) */
