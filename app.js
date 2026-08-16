@@ -253,4 +253,32 @@ function setupEventListeners() {
   if (closeBylawBtn && bylawModal) {
     closeBylawBtn.addEventListener("click", () => bylawModal.classList.remove("active"));
   }
+
+  // Mobile Hamburger Menu Listener
+  const hamburgerToggle = document.getElementById("hamburger-toggle");
+  const mobileNavDrawer = document.getElementById("mobile-nav-drawer");
+  const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+
+  if (hamburgerToggle && mobileNavDrawer) {
+    hamburgerToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      hamburgerToggle.classList.toggle("active");
+      mobileNavDrawer.classList.toggle("active");
+    });
+
+    mobileNavItems.forEach(item => {
+      item.addEventListener("click", () => {
+        hamburgerToggle.classList.remove("active");
+        mobileNavDrawer.classList.remove("active");
+      });
+    });
+
+    // Close drawer when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!mobileNavDrawer.contains(e.target) && !hamburgerToggle.contains(e.target)) {
+        hamburgerToggle.classList.remove("active");
+        mobileNavDrawer.classList.remove("active");
+      }
+    });
+  }
 }

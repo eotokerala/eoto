@@ -157,6 +157,10 @@ a:hover {
   letter-spacing: 0.8px;
 }
 
+.logo-subtitle span {
+  display: inline;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -177,7 +181,95 @@ a:hover {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+}
+
+/* 3-Line Hamburger Menu Toggle Button */
+.hamburger-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 32px;
+  z-index: 100;
+}
+
+.hamburger-toggle span {
+  width: 100%;
+  height: 3px;
+  background: var(--accent-green);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.hamburger-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Mobile Nav Drawer Overlay */
+.mobile-nav-drawer {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease-in-out;
+  z-index: 99;
+}
+
+.mobile-nav-drawer.active {
+  max-height: 350px;
+}
+
+.mobile-nav-content {
+  padding: 1.25rem 1.5rem;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.mobile-nav-item {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--primary-navy);
+  display: block;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease;
+  text-decoration: none;
+}
+
+.mobile-nav-item:hover {
+  background: #F1F5F9;
+  color: var(--accent-green);
+}
+
+.mobile-contact-link {
+  background: var(--accent-green-light);
+  color: var(--accent-green);
+  border: 1px solid var(--accent-green-border);
 }
 
 /* ==========================================================================
@@ -982,10 +1074,27 @@ a:hover {
   }
 
   .logo-subtitle {
-    font-size: 0.65rem;
-    letter-spacing: 0.4px;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
     line-height: 1.2;
+    color: var(--accent-green);
+    margin-top: 1px;
+  }
+
+  .logo-subtitle span {
+    display: block;
     white-space: nowrap;
+  }
+
+  .hamburger-toggle {
+    display: flex;
+  }
+
+  .mobile-nav-drawer {
+    display: block;
   }
 
   .nav-links {
@@ -994,11 +1103,12 @@ a:hover {
 
   .nav-actions {
     flex-shrink: 0;
+    gap: 8px;
   }
 
   .nav-actions .btn {
-    padding: 7px 14px;
-    font-size: 0.85rem;
+    padding: 6px 12px;
+    font-size: 0.8rem;
     white-space: nowrap;
   }
 
