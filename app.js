@@ -12,7 +12,7 @@ const EOTO_WHATSAPP_NUMBER = "918848532421";
 
 // Global State
 let allCases = [];
-let activeFilter = "all";
+let activeFilter = "Open";
 let searchQuery = "";
 let isAdminAuthenticated = false;
 
@@ -68,8 +68,19 @@ function renderCasesTable() {
 
   // Filter cases by active tab and search query
   const filteredCases = allCases.filter(c => {
-    const matchesFilter = (activeFilter === "all") || (c.status.toLowerCase() === activeFilter.toLowerCase());
-    
+    const statusLower = c.status ? c.status.toLowerCase() : "";
+    let matchesFilter = false;
+
+    if (activeFilter === "all") {
+      matchesFilter = true;
+    } else if (activeFilter.toLowerCase() === "open") {
+      matchesFilter = (statusLower === "open");
+    } else if (activeFilter.toLowerCase() === "closed" || activeFilter.toLowerCase() === "sponsored") {
+      matchesFilter = (statusLower === "sponsored" || statusLower === "closed");
+    } else {
+      matchesFilter = (statusLower === activeFilter.toLowerCase());
+    }
+
     const query = searchQuery.toLowerCase().trim();
     const matchesSearch = !query || 
       (c.id && c.id.toLowerCase().includes(query)) ||
