@@ -229,6 +229,19 @@ a:hover {
   color: var(--primary-navy);
 }
 
+.btn-contact-green {
+  background: var(--accent-green-light);
+  color: var(--accent-green);
+  border: 1.5px solid var(--accent-green-border);
+  font-weight: 700;
+}
+
+.btn-contact-green:hover {
+  background: var(--accent-green);
+  color: #FFFFFF;
+  border-color: var(--accent-green);
+}
+
 .btn-outline:hover {
   border-color: var(--primary-navy);
   background: rgba(10, 37, 64, 0.04);
@@ -927,10 +940,6 @@ a:hover {
    Responsive Adjustments
    ========================================================================== */
 @media (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
   .bylaw-grid {
     grid-template-columns: 1fr;
   }
@@ -940,15 +949,116 @@ a:hover {
   }
 }
 
-@media (max-width: 640px) {
-  .hero-title {
-    font-size: 2.2rem;
+@media (max-width: 768px) {
+  .header {
+    height: auto;
+    padding: 0.6rem 0;
   }
+
+  .nav-container {
+    height: auto;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-link {
+    gap: 8px;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
+  .nav-logo-img {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+
+  .logo-title {
+    font-size: 0.95rem;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .logo-subtitle {
+    font-size: 0.58rem;
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+    white-space: normal;
+    word-break: break-word;
+    max-width: 140px;
+  }
+
   .nav-links {
     display: none;
   }
-  .cases-table {
+
+  .nav-actions {
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .nav-actions .btn {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  /* Table to Mobile Card Transformation (Zero Horizontal Scroll!) */
+  .cases-table, 
+  .cases-table thead, 
+  .cases-table tbody, 
+  .cases-table th, 
+  .cases-table td, 
+  .cases-table tr {
     display: block;
-    overflow-x: auto;
+    width: 100%;
+  }
+
+  .cases-table thead {
+    display: none;
+  }
+
+  .cases-table tbody tr {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.2rem;
+    padding: 1.15rem;
+    box-shadow: var(--shadow-sm);
+    box-sizing: border-box;
+  }
+
+  .cases-table td {
+    padding: 0.35rem 0;
+    border: none;
+  }
+
+  .cell-id {
+    margin-bottom: 0.35rem;
+  }
+
+  .cell-main-info {
+    margin-bottom: 0.5rem;
+  }
+
+  .cell-amount {
+    display: inline-block;
+    width: 48%;
+    vertical-align: middle;
+    border-top: 1px dashed var(--border-light);
+    padding-top: 0.75rem !important;
+    margin-top: 0.5rem;
+  }
+
+  .cell-action {
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+    vertical-align: middle;
+    border-top: 1px dashed var(--border-light);
+    padding-top: 0.75rem !important;
+    margin-top: 0.5rem;
   }
 }

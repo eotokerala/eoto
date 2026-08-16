@@ -95,18 +95,18 @@ function renderCasesTable() {
 
     return `
       <tr>
-        <td>
+        <td class="cell-id">
           <span class="case-id-badge">${escapeHtml(cleanCaseId(c.id, c.year))}</span>
         </td>
-        <td style="max-width: 520px;">
+        <td class="cell-main-info" style="max-width: 520px;">
           <div class="course-title">${escapeHtml(c.course)}</div>
           <div class="institution-subtitle">${escapeHtml(c.institution)}</div>
           ${c.description ? `<div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px; line-height: 1.5; background: #F8FAFC; padding: 8px 12px; border-left: 3px solid var(--accent-green); border-radius: 4px;">${escapeHtml(c.description)}</div>` : ''}
         </td>
-        <td>
+        <td class="cell-amount">
           <span class="amount-text">${formattedAmount}</span>
         </td>
-        <td>
+        <td class="cell-action">
           ${isClosed ? `
             <span class="badge-closed">Closed</span>
           ` : `
