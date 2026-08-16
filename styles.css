@@ -976,18 +976,16 @@ a:hover {
   }
 
   .logo-title {
-    font-size: 0.95rem;
-    line-height: 1.1;
+    font-size: 1.05rem;
+    line-height: 1.15;
     white-space: nowrap;
   }
 
   .logo-subtitle {
-    font-size: 0.58rem;
-    letter-spacing: 0.2px;
+    font-size: 0.65rem;
+    letter-spacing: 0.4px;
     line-height: 1.2;
-    white-space: normal;
-    word-break: break-word;
-    max-width: 140px;
+    white-space: nowrap;
   }
 
   .nav-links {
@@ -995,13 +993,12 @@ a:hover {
   }
 
   .nav-actions {
-    gap: 6px;
     flex-shrink: 0;
   }
 
   .nav-actions .btn {
-    padding: 6px 10px;
-    font-size: 0.78rem;
+    padding: 7px 14px;
+    font-size: 0.85rem;
     white-space: nowrap;
   }
 
