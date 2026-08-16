@@ -1,3 +1,5 @@
+scratch/
+*.png
 *.csv
 *.zip
 .DS_Store
