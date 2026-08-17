@@ -550,76 +550,192 @@ a:hover {
   font-size: 1.05rem;
 }
 
-.operate-banner-card {
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-light);
-  padding: 2.5rem 2rem;
-  display: flex;
+/* ==========================================================================
+   How EOTO Operates - Prominent Header, Trust Banner & 3-Step Cards
+   ========================================================================== */
+.operate-section-header {
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+
+.operate-main-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+  letter-spacing: -0.5px;
+  position: relative;
+  display: inline-block;
+}
+
+.operate-main-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-green), #166534);
+  border-radius: 2px;
+  margin: 10px auto 0 auto;
+}
+
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  margin-bottom: 4rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-.operate-step {
+.step-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  height: 100%;
   display: flex;
-  align-items: flex-start;
-  gap: 1.25rem;
-  flex: 1;
+  flex-direction: column;
+  position: relative;
 }
 
-.operate-icon-circle {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-green-border);
+}
+
+.step-card.highlight-card {
+  border: 1.5px solid var(--accent-green);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F0FDF4 100%);
+}
+
+.step-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.step-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: var(--primary-navy);
+  background: #F1F5F9;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+}
+
+.step-badge.badge-accent {
+  background: #DCFCE7;
+  color: #15803D;
+  border-color: #BBF7D0;
+}
+
+.step-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 }
 
-.icon-green {
+.step-icon-wrapper.icon-green {
   background: var(--accent-green-light);
   color: var(--accent-green);
-  border: 1.5px solid var(--accent-green-border);
 }
 
-.icon-navy {
+.step-icon-wrapper.icon-navy {
   background: #EEF2FF;
   color: var(--primary-navy);
-  border: 1.5px solid #C7D2FE;
 }
 
-.operate-info h3 {
+.step-title {
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--primary-navy);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.6rem;
 }
 
-.operate-info p {
-  font-size: 0.9rem;
+.step-desc {
+  font-size: 0.92rem;
   color: var(--text-muted);
   line-height: 1.55;
 }
 
-.operate-divider {
-  width: 1px;
-  height: 70px;
-  background: var(--border-light);
-  flex-shrink: 0;
+.step-connector {
+  color: var(--accent-green);
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Trust Guarantee Banner */
+.trust-guarantee-banner {
+  background: linear-gradient(135deg, var(--primary-navy) 0%, #0F172A 100%);
+  color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 3.5rem;
+}
+
+.trust-badge-pill {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #4ADE80;
+  background: rgba(74, 222, 128, 0.12);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  padding: 6px 14px;
+  border-radius: 30px;
+}
+
+.trust-features-list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #E2E8F0;
+  flex-wrap: wrap;
+}
+
+.trust-feature-dot {
+  color: #4ADE80;
 }
 
 @media (max-width: 900px) {
-  .operate-banner-card {
-    flex-direction: column;
-    align-items: stretch;
+  .how-it-works-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
-  .operate-divider {
-    width: 100%;
-    height: 1px;
+
+  .step-connector {
+    transform: rotate(90deg);
+    padding: 0.25rem 0;
+  }
+
+  .trust-guarantee-banner {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .trust-features-list {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .trust-feature-dot {
+    display: none;
   }
 }
   border: 1px solid var(--border-light);
