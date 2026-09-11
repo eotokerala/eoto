@@ -28,7 +28,7 @@ Hosted on **Cloudflare Pages** and powered by **Google Apps Script + Google Shee
 ## 📊 Google Sheet Setup Instructions
 
 1. Open your Google Sheet in `eoto.kerala@gmail.com`:
-   `https://docs.google.com/spreadsheets/d/1xzZLvBHTfH9vyw88hZzedW7m_IDCHGTayGu3JAd2EDM/edit#gid=334340971`
+   `https://docs.google.com/spreadsheets/d/11BE0o4OKOnEt1I1ST_OnNtJsymqQslnEBSppIYo_nxc/edit#gid=334340971`
 2. Ensure the tab is named **`Cases`**.
 3. Create the following Column Headers in **Row 1**:
    - Column A (`A1`): `Case ID`
