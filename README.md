@@ -21,7 +21,7 @@ Hosted on **Cloudflare Pages** and powered by **Google Apps Script + Google Shee
 - **Frontend**: HTML5, Vanilla JavaScript (ES6+), Custom CSS Design System with Google Fonts (`Outfit` & `Plus Jakarta Sans`).
 - **Backend API**: Google Apps Script Web App (JS/V8 API engine inside Google Drive).
 - **Database**: Google Sheet (`Cases` tab).
-- **Hosting**: Cloudflare Pages (`eoto.pages.dev`).
+- **Hosting**: Cloudflare Pages (`https://eoto-4hg.pages.dev`).
 
 ---
 
@@ -74,7 +74,7 @@ Hosted on **Cloudflare Pages** and powered by **Google Apps Script + Google Shee
 3. Select your `eoto-website` repository.
 4. Set **Build command**: (leave blank, static HTML)
 5. Set **Build output directory**: `/` (root directory).
-6. Click **Save and Deploy**. Your site will be live at `https://eoto.pages.dev`!
+6. Click **Save and Deploy**. Your site will be live at `https://eoto-4hg.pages.dev`!
 
 ### Option 2: Direct Upload via Cloudflare Dashboard
 1. Go to Cloudflare Dashboard > **Workers & Pages** > **Create application** > **Pages** > **Upload assets**.
