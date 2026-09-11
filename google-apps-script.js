@@ -33,11 +33,9 @@ function doGet(e) {
         education: findCol(headers, ["education dtls", "course", "education"]),
         institution: findCol(headers, ["address of institution", "institution", "college"]),
         address: findCol(headers, ["address", "district", "location"]),
-        approvedAmount: findCol(headers, ["approved amount"]),
-        sponsorName: findCol(headers, ["sponsor's name", "sponsor name", "sponsor"]),
-        recStatus: findCol(headers, ["recommended/rejected", "recommendation"]),
-        mediaPost: findCol(headers, ["mediapost", "post"]),
-        reason: findCol(headers, ["reason for rejection/recommendation", "description", "remarks"])
+        approvedAmount: findCol(headers, ["approved amount", "amount"]),
+        status: findCol(headers, ["status", "recommended/rejected", "recommendation", "rec. status"]),
+        mediaPost: findCol(headers, ["mediapost", "post"])
       };
       
       for (let i = 1; i < displayData.length; i++) {
@@ -48,30 +46,28 @@ function doGet(e) {
         const caseNo = cleanCaseNo(caseNoRaw, sheetName);
         if (!caseNo) continue;
         
-        const recVal = String(getVal(row, colIndex.recStatus)).trim().toLowerCase();
-        
-        // Rule: Must be Recommended or Waiting for Sponsor
-        const isRecommended = recVal.includes("recommended") || recVal.includes("waiting for sponsor");
-        if (!isRecommended) {
-          continue; // Skip rejected or unapproved cases
-        }
-        
-        // Status Logic: Combination of Recommended/Rejected & Sponsor's Name
-        const sponsorName = String(getVal(row, colIndex.sponsorName)).trim();
-        let calculatedStatus = "Open";
-        if (sponsorName !== "" && !recVal.includes("waiting for sponsor")) {
-          calculatedStatus = "Sponsored";
-        } else {
+        // Status mapping rule:
+        // Status can be: Started / Pending / Recommended / Rejected / Waiting for sponsor
+        // - "Pending" or "Waiting for sponsor" -> Open
+        // - "Recommended" -> Closed
+        // - Others (Started, Rejected, etc.) -> Ignore / skip
+        const statusRaw = String(getVal(row, colIndex.status)).trim().toLowerCase();
+        let calculatedStatus = "";
+
+        if (statusRaw === "pending" || statusRaw.includes("waiting for sponsor") || statusRaw === "waiting") {
           calculatedStatus = "Open";
+        } else if (statusRaw === "recommended" || (statusRaw.startsWith("recommended") && !statusRaw.includes("rejected"))) {
+          calculatedStatus = "Closed";
+        } else {
+          continue; // Skip Started, Rejected, and any other status
         }
 
         // Amount Rule: Strictly use "Approved amount"
         const approvedAmt = String(getVal(row, colIndex.approvedAmount)).trim() || "Approved Assistance";
 
-        // Description Rule: Use "MediaPost" as case story summary
+        // Description Rule: Strictly take from "MediaPost" only (do NOT take from Reason column)
         const mediaPost = String(getVal(row, colIndex.mediaPost)).trim();
-        const reason = String(getVal(row, colIndex.reason)).trim();
-        const displayDescription = mediaPost || reason || "Verified EOTO Educational Case";
+        const displayDescription = mediaPost;
 
         // District extraction without exposing street/home address PII
         const fullAddress = String(getVal(row, colIndex.address));

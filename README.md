@@ -35,9 +35,9 @@ Hosted on **Cloudflare Pages** and powered by **Google Apps Script + Google Shee
    - Column B (`B1`): `Course`
    - Column C (`C1`): `Institution`
    - Column D (`D1`): `District`
-   - Column E (`E1`): `Amount`
-   - Column F (`F1`): `Status`
-   - Column G (`G1`): `Description`
+   - Column E (`E1`): `Approved amount`
+   - Column F (`F1`): `Status` (Values: `Pending` or `Waiting for sponsor` -> Open; `Recommended` -> Closed; `Started` & `Rejected` are ignored)
+   - Column G (`G1`): `MediaPost` (Public case summary)
    - Column H (`H1`): `Date Added`
 
 ---
