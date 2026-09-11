@@ -55,7 +55,7 @@ function doGet(e) {
         const statusRaw = statusColVal || recColVal;
         let calculatedStatus = "";
 
-        if (statusRaw === "pending" || statusRaw.includes("waiting for sponsor") || statusRaw === "waiting") {
+        if (statusRaw.includes("pending") || statusRaw.includes("waiting")) {
           calculatedStatus = "Open";
         } else if (statusRaw.includes("recommended") && !statusRaw.includes("not recommended") && !statusRaw.includes("rejected")) {
           calculatedStatus = "Closed";
