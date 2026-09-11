@@ -93,6 +93,8 @@ function doGet(e) {
       success: true,
       count: allCases.length,
       updatedAt: new Date().toISOString(),
+      sheetTitle: ss.getName(),
+      sheetsInfo: sheets.map(s => ({ name: s.getName().trim(), rows: s.getLastRow() })),
       cases: allCases
     });
     
