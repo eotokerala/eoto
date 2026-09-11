@@ -34,7 +34,8 @@ function doGet(e) {
         institution: findCol(headers, ["address of institution", "institution", "college"]),
         address: findCol(headers, ["address", "district", "location"]),
         approvedAmount: findCol(headers, ["approved amount", "amount"]),
-        status: findCol(headers, ["status", "recommended/rejected", "recommendation", "rec. status"]),
+        status: findCol(headers, ["status"]),
+        recStatus: findCol(headers, ["recommended/rejected", "recommendation", "rec. status"]),
         mediaPost: findCol(headers, ["mediapost", "post"])
       };
       
@@ -47,16 +48,16 @@ function doGet(e) {
         if (!caseNo) continue;
         
         // Status mapping rule:
-        // Status can be: Started / Pending / Recommended / Rejected / Waiting for sponsor
-        // - "Pending" or "Waiting for sponsor" -> Open
-        // - "Recommended" -> Closed
-        // - Others (Started, Rejected, etc.) -> Ignore / skip
-        const statusRaw = String(getVal(row, colIndex.status)).trim().toLowerCase();
+        // Check both "Status" column and "Recommended/Rejected" column.
+        // 2024 & 2025 sheets store status in "Recommended/Rejected", while 2026 has both columns.
+        const statusColVal = String(getVal(row, colIndex.status)).trim().toLowerCase();
+        const recColVal = String(getVal(row, colIndex.recStatus)).trim().toLowerCase();
+        const statusRaw = statusColVal || recColVal;
         let calculatedStatus = "";
 
         if (statusRaw === "pending" || statusRaw.includes("waiting for sponsor") || statusRaw === "waiting") {
           calculatedStatus = "Open";
-        } else if (statusRaw === "recommended" || (statusRaw.startsWith("recommended") && !statusRaw.includes("rejected"))) {
+        } else if (statusRaw.includes("recommended") && !statusRaw.includes("not recommended") && !statusRaw.includes("rejected")) {
           calculatedStatus = "Closed";
         } else {
           continue; // Skip Started, Rejected, and any other status
